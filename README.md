@@ -28,7 +28,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2>Actions and Observations</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/rrmZDxS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Create two virtual machines in Microsoft Azure: one running Windows 10 (21H2) and another running Windows Server 2022 (or use the VMs from <a href="https://github.com/mxwllslvr/Configuring-On-premises-Active-Directory-within-Azure-VMs/"> Configuring On-premises Active Directory within Azure VMs</a>.) Ensure both VMs are in the same virtual network to allow communication. For both VMs, enable Remote Desktop Protocol (RDP) by adding an inbound rule in their NSGs for port 3389. Assign public IP addresses to both VMs and note their private IP addresses for later use. Verify connectivity by using Remote Desktop to connect to the Windows 10 VM and the Windows Server 2022 VM from your local machine.
