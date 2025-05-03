@@ -36,7 +36,7 @@ Create two virtual machines in Microsoft Azure: one running Windows 10 (21H2) an
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/eQt6Rrd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 On the Windows 10 VM, download and install Wireshark from the official website. Launch Wireshark and select the network interface associated with the VM’s private IP address. Start capturing packets without applying any filters to observe all network traffic. To generate traffic for analysis, perform actions such as pinging the Windows Server 2022 VM’s private IP from the Windows 10 VM (using `ping <Windows-Server-Private-IP>` in Command Prompt) and accessing a website via a browser to generate HTTP/HTTPS traffic. Observe the captured packets in Wireshark, noting protocols like ICMP (for ping) and TCP (for HTTP/HTTPS).
@@ -44,7 +44,7 @@ On the Windows 10 VM, download and install Wireshark from the official website. 
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/ZKK5gsY.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 In the Azure Portal, navigate to the NSG associated with the Windows Server 2022 VM. Create a new inbound security rule to block ICMP traffic (protocol: ICMP, action: Deny, priority: lower than the allow rules). From the Windows 10 VM, attempt to ping the Windows Server 2022 VM again and observe in Wireshark that ICMP packets are sent but no responses are received, indicating the NSG rule is blocking the traffic. Next, create an outbound rule in the Windows 10 VM’s NSG to block HTTP traffic (port 80). Attempt to access a website from the Windows 10 VM and verify in Wireshark that TCP SYN packets are sent but no connection is established. Revert these rules to restore connectivity and observe the traffic resuming in Wireshark.
